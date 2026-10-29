@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Política de privacidad de Hopwise</title>
+<link rel="alternate" hreflang="en" href="../">
+<style>
+  :root {
+    --bg: #0F1419;
+    --surface: #161D24;
+    --text: #E6EDF3;
+    --muted: #9AA7B4;
+    --accent: #2DD4BF;
+    --border: #26313B;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #F7FAFB;
+      --surface: #FFFFFF;
+      --text: #14202B;
+      --muted: #52606D;
+      --accent: #0F766E;
+      --border: #DCE3E8;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 8px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; color: var(--accent); }
+  p, li { margin: 0 0 12px; }
+  ul { padding-left: 1.25rem; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); margin: 0; }
+  .lang { float: right; font-size: 0.95rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="lang" href="../" hreflang="en" lang="en">English</a>
+    <h1>Política de privacidad de Hopwise</h1>
+    <p class="meta">Última actualización: 20 de octubre de 2026</p>
+  </header>
+
+  <div class="card">
+    <p><strong>En resumen:</strong> Hopwise no recopila, envía ni comparte ningún dato personal. No tiene cuentas, anuncios,
+    analíticas, telemetría, informes de fallos ni servidor propio. Todo lo que introduces se queda en tu dispositivo.</p>
+  </div>
+
+  <h2>Quiénes somos</h2>
+  <p>Hopwise (paquete <code>com.hopwise.app</code>) es una aplicación de diagnóstico de red para Android, publicada en
+  Google Play por el desarrollador «Hopwise». Esta política explica cómo trata la app la información.</p>
+
+  <h2>Datos que recopilamos</h2>
+  <p>Ninguno. El desarrollador no recibe ningún dato de la app: ni datos personales, ni datos de uso, ni identificadores
+  del dispositivo, ni resultados de diagnóstico. La app no usa el ID de publicidad.</p>
+
+  <h2>Datos guardados en tu dispositivo</h2>
+  <p>Las sedes, dispositivos, hosts, favoritos, historial de diagnósticos, líneas base y ajustes que creas se guardan solo
+  en tu dispositivo, en una base de datos SQLite local propia de la app. La copia de seguridad en la nube de Android y la
+  transferencia entre dispositivos están desactivadas para estos datos, así que la app no los copia a Google ni a otro
+  dispositivo.</p>
+
+  <h2>Tráfico de red</h2>
+  <p>Hopwise es una herramienta de diagnóstico, así que envía tráfico de red, pero solo a donde lo requieren los
+  diagnósticos que ejecutas:</p>
+  <ul>
+    <li>Los hosts que pruebas (ping, traceroute, puertos TCP, TLS, HTTP).</li>
+    <li>Los resolutores DNS que eliges: el resolutor del sistema, Cloudflare (1.1.1.1), Google (8.8.8.8), Quad9 (9.9.9.9),
+      DNS sobre HTTPS a Cloudflare o Google, o un servidor personalizado que introduzcas.</li>
+    <li>Servidores WHOIS, cuando haces una consulta WHOIS: primero <code>whois.iana.org</code> y después el registro al que
+      remite.</li>
+  </ul>
+  <p>Estos terceros reciben lo que revela cualquier petición de red (por ejemplo, tu dirección IP y el nombre o la
+  dirección consultados) y lo tratan según sus propias políticas. No se envía nada al desarrollador.</p>
+
+  <h2>Exportaciones y compartir</h2>
+  <p>La app exporta datos (CSV, JSON, PDF o informes de texto) solo cuando tú lo decides, mediante el menú para compartir
+  o el selector de archivos de Android, al destino que eliges. Lo que ocurra con un archivo exportado depende de ti y de la
+  app o el servicio al que lo envíes.</p>
+
+  <h2>Valoraciones y comentarios</h2>
+  <ul>
+    <li>«Valorar Hopwise» usa la valoración integrada de Google Play (In-App Review). Ese proceso lo gestiona Google Play
+      según la <a href="https://policies.google.com/privacy?hl=es">política de privacidad de Google</a>; el desarrollador
+      solo recibe la valoración y la reseña públicas que decidas publicar.</li>
+    <li>«Enviar comentarios» abre tu propia app de correo con un enlace <code>mailto:</code>. No se envía nada a menos que
+      tú envíes el correo.</li>
+  </ul>
+
+  <h2>Permisos</h2>
+  <ul>
+    <li><strong>Internet</strong> (<code>android.permission.INTERNET</code>): para enviar pings, consultas DNS, pruebas
+      TCP/TLS/HTTP y consultas WHOIS.</li>
+    <li><strong>Estado de la red</strong> (<code>android.permission.ACCESS_NETWORK_STATE</code>): para saber si el
+      dispositivo tiene conexión, de modo que la app pueda indicar «sin red» en lugar de mostrar un fallo engañoso.</li>
+  </ul>
+  <p>La app no solicita permisos de ubicación, contactos, almacenamiento, cámara, teléfono, micrófono ni ID de
+  publicidad.</p>
+
+  <h2>Eliminar tus datos</h2>
+  <p>Como todos los datos se guardan solo en tu dispositivo, los controlas por completo. Puedes borrarlo todo desde
+  <em>Ajustes → Borrar todos los datos</em>, vaciar el almacenamiento de la app en los ajustes de Android o desinstalar la app, lo que
+  elimina todos sus datos. No hay ninguna copia en un servidor que borrar.</p>
+
+  <h2>Menores</h2>
+  <p>Hopwise es una herramienta para profesionales de redes. No está dirigida a menores de 13 años ni diseñada para niños.
+  No recopila a sabiendas información de nadie, tampoco de menores.</p>
+
+  <h2>Cambios en esta política</h2>
+  <p>Si esta política cambia, la nueva versión se publicará en esta página con una nueva fecha de «última actualización».
+  Los cambios importantes también se mencionarán en las notas de la versión de la app.</p>
+
+  <h2>Contacto</h2>
+  <p>Dudas sobre esta política: <a href="mailto:hopwise.app@outlook.com">hopwise.app@outlook.com</a></p>
+</main>
+</body>
+</html>

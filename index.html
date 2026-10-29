@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Hopwise Privacy Policy</title>
+<link rel="alternate" hreflang="es" href="es/">
+<style>
+  :root {
+    --bg: #0F1419;
+    --surface: #161D24;
+    --text: #E6EDF3;
+    --muted: #9AA7B4;
+    --accent: #2DD4BF;
+    --border: #26313B;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #F7FAFB;
+      --surface: #FFFFFF;
+      --text: #14202B;
+      --muted: #52606D;
+      --accent: #0F766E;
+      --border: #DCE3E8;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 8px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; color: var(--accent); }
+  p, li { margin: 0 0 12px; }
+  ul { padding-left: 1.25rem; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); margin: 0; }
+  .lang { float: right; font-size: 0.95rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="lang" href="es/" hreflang="es" lang="es">Español</a>
+    <h1>Hopwise Privacy Policy</h1>
+    <p class="meta">Last updated: 20 October 2026</p>
+  </header>
+
+  <div class="card">
+    <p><strong>In short:</strong> Hopwise does not collect, send or share any personal data. It has no account, no ads,
+    no analytics, no telemetry, no crash reporting and no backend server. Everything you enter stays on your device.</p>
+  </div>
+
+  <h2>Who we are</h2>
+  <p>Hopwise (package <code>com.hopwise.app</code>) is a network diagnostic app for Android, published on Google Play by the
+  developer “Hopwise”. This policy explains how the app handles information.</p>
+
+  <h2>Data we collect</h2>
+  <p>None. The developer does not receive any data from the app: no personal data, no usage data, no device identifiers,
+  no diagnostic results. The app does not use an advertising ID.</p>
+
+  <h2>Data stored on your device</h2>
+  <p>The sites, devices, hosts, favorites, diagnostic history, baselines and settings you create are stored only on your
+  device, in a local SQLite database that belongs to the app. Android cloud backup and device-to-device transfer are
+  disabled for this data, so it is not copied to Google or to another device by the app.</p>
+
+  <h2>Network traffic</h2>
+  <p>Hopwise is a diagnostic tool, so it sends network traffic, but only where the diagnostics you run require:</p>
+  <ul>
+    <li>The hosts you test (ping, traceroute, TCP ports, TLS, HTTP).</li>
+    <li>The DNS resolvers you choose: your system resolver, Cloudflare (1.1.1.1), Google (8.8.8.8), Quad9 (9.9.9.9),
+      DNS over HTTPS to Cloudflare or Google, or a custom server you enter.</li>
+    <li>WHOIS servers, when you run a WHOIS lookup: <code>whois.iana.org</code> first, then the registry it refers to.</li>
+  </ul>
+  <p>These third parties receive what any network request reveals (such as your IP address and the name or address being
+  queried) and handle it under their own policies. Nothing is sent to the developer.</p>
+
+  <h2>Exports and sharing</h2>
+  <p>The app exports data (CSV, JSON, PDF or text reports) only when you choose to, through the Android share sheet or
+  file picker, to a destination you pick. What happens to an exported file is up to you and the app or service you send
+  it to.</p>
+
+  <h2>Rating and feedback</h2>
+  <ul>
+    <li>“Rate Hopwise” uses Google Play In-App Review. That flow is handled by Google Play under
+      <a href="https://policies.google.com/privacy">Google’s privacy policy</a>; the developer receives only the public
+      rating and review you choose to post.</li>
+    <li>“Send feedback” opens your own email app with a <code>mailto:</code> link. Nothing is sent unless you send the
+      email yourself.</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><strong>Internet</strong> (<code>android.permission.INTERNET</code>): to send pings, DNS queries, TCP/TLS/HTTP
+      probes and WHOIS lookups.</li>
+    <li><strong>Network state</strong> (<code>android.permission.ACCESS_NETWORK_STATE</code>): to know whether the device
+      is online, so the app can say “no network” instead of showing a misleading failure.</li>
+  </ul>
+  <p>The app does not request location, contacts, storage, camera, phone, microphone or advertising ID permissions.</p>
+
+  <h2>Deleting your data</h2>
+  <p>Because all data is stored only on your device, you control it fully. You can delete everything from
+  <em>Settings → Delete all data</em>, clear the app’s storage in Android settings, or uninstall the app, which removes
+  all its data. There is no copy on any server to delete.</p>
+
+  <h2>Children</h2>
+  <p>Hopwise is a tool for network professionals. It is not directed to children under 13 and is not designed for
+  children. It does not knowingly collect information from anyone, including children.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the new version will be published on this page with a new “last updated” date. Material
+  changes will also be mentioned in the app’s release notes.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:hopwise.app@outlook.com">hopwise.app@outlook.com</a></p>
+</main>
+</body>
+</html>
