@@ -44,6 +44,7 @@
   .meta { color: var(--muted); margin: 0; }
   .lang { float: right; font-size: 0.95rem; }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+  h3 { font-size: 1.02rem; margin: 20px 0 6px; }
   code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; overflow-wrap: anywhere; }
 </style>
 </head>
@@ -52,12 +53,14 @@
   <header>
     <a class="lang" href="es/" hreflang="es" lang="es">Español</a>
     <h1>Hopwise Privacy Policy</h1>
-    <p class="meta">Last updated: 30 October 2026</p>
+    <p class="meta">Last updated: 9 November 2026</p>
   </header>
 
   <div class="card">
     <p><strong>In short:</strong> Hopwise does not collect, send or share any personal data. It has no account, no ads,
-    no analytics, no telemetry, no crash reporting and no backend server. Everything you enter stays on your device.</p>
+    no analytics, no telemetry, no crash reporting and no backend server. Everything you enter stays on your device. The
+    location permission, if you grant it, is used only on your device to read Wi-Fi names; your location is never stored or
+    sent.</p>
   </div>
 
   <h2>Who we are</h2>
@@ -72,17 +75,76 @@
   <p>The sites, devices, hosts, favorites, diagnostic history, baselines and settings you create are stored only on your
   device, in a local SQLite database that belongs to the app. Android cloud backup and device-to-device transfer are
   disabled for this data, so it is not copied to Google or to another device by the app.</p>
+  <p>What the Wi-Fi tab shows (the path to the internet, signal, devices found and nearby networks) is kept in memory
+  while the app is open and is never saved; only a diagnosis you start from a device found is saved in the history, like
+  any other diagnosis. Two Wi-Fi settings are saved with the other settings: whether to check the
+  internet and public IP, and whether you have already seen the warning before the first device search.</p>
 
-  <h2>Network traffic</h2>
-  <p>Hopwise is a diagnostic tool, so it sends network traffic, but only where the diagnostics you run require:</p>
+  <h2>What traffic the app generates and where</h2>
+  <p>Hopwise is a diagnostic tool, so it sends network traffic, but only where the diagnostics you run require. None of it
+  goes to the developer.</p>
+
+  <h3>Diagnostics and tools</h3>
   <ul>
     <li>The hosts you test (ping, traceroute, TCP ports, TLS, HTTP).</li>
     <li>The DNS resolvers you choose: your system resolver, Cloudflare (1.1.1.1), Google (8.8.8.8), Quad9 (9.9.9.9),
       DNS over HTTPS to Cloudflare or Google, or a custom server you enter.</li>
     <li>WHOIS servers, when you run a WHOIS lookup: <code>whois.iana.org</code> first, then the registry it refers to.</li>
   </ul>
-  <p>These third parties receive what any network request reveals (such as your IP address and the name or address being
-  queried) and handle it under their own policies. Nothing is sent to the developer.</p>
+
+  <h3>Wi-Fi tab: the path to the internet</h3>
+  <p>When you open the Wi-Fi tab, when you come back to the app with the tab open, when you refresh it, when you turn
+  the internet check back on, and when the phone joins another Wi-Fi network while the app is in the foreground, the
+  app checks the path from your phone to the router and to the
+  internet. It sends these checks over the Wi-Fi network even if mobile data is your default connection. If Android does
+  not allow that (for example, with a VPN without bypass), they go out over your default connection (the VPN or mobile
+  data) and the app says so on screen:</p>
+  <ul>
+    <li>Your router (the Wi-Fi network's gateway): a few pings.</li>
+    <li>Cloudflare (<code>1.1.1.1</code>) and Google (<code>8.8.8.8</code>): a few pings each, to see whether the internet
+      answers.</li>
+    <li>OpenDNS, run by Cisco (<code>208.67.222.222</code>): one DNS query for <code>myip.opendns.com</code>, which
+      returns your network's public IP address.</li>
+  </ul>
+  <p>These three services only see your network's public IP address, as with any connection. The app sends them no
+  network name, access point, location or device information.</p>
+  <p>You can turn this off in <em>Settings → Wi-Fi → Check internet and public IP</em>. When it is off, the path stops at
+  the router and Cloudflare, Google and OpenDNS are not contacted.</p>
+
+  <h3>Wi-Fi tab: device search</h3>
+  <p>Only when you tap <em>Find devices</em>, and only on networks you own or are authorized to test (the app warns you
+  before the first search), the app searches the Wi-Fi network's subnet (at most 254 addresses) over the Wi-Fi network:</p>
+  <ul>
+    <li>A ping to each address; a TCP connection attempt to 3 common ports (80, 443 and 445) on the addresses that do
+      not answer the ping; and up to 18 common ports on each device found, including remote access ports such as
+      Telnet and remote desktop, so the app can warn when they are open.</li>
+    <li>Device names: mDNS queries (multicast to <code>224.0.0.251</code> and to each device) and NetBIOS name queries to
+      each device. This traffic stays on your local network.</li>
+    <li>Reverse DNS: for devices without a name, a reverse lookup of their local address sent to the router's DNS server.
+      Some routers forward these lookups to their upstream DNS server, usually your internet provider's.</li>
+  </ul>
+  <p>If Android does not let the app use the Wi-Fi network (for example, a VPN without bypass), the search sends nothing.
+  The results are not saved. A diagnosis you start from a device found is saved in the history, like any other.</p>
+
+  <h3>Wi-Fi tab: nearby networks</h3>
+  <p>When you open <em>Nearby networks</em> or tap <em>Scan</em>, the app asks Android to scan for Wi-Fi networks. The
+  scan is done by the phone's radio; the app reads the results (network name, access point, band, channel, security
+  and signal), shows them and does not save or send them.</p>
+
+  <p>Third parties that receive traffic (the hosts you test, DNS resolvers, WHOIS servers, Cloudflare, Google, OpenDNS
+  and your provider's DNS) see what any network request reveals, such as your IP address and the name or address being
+  queried, and handle it under their own policies.</p>
+
+  <h2>Location permission</h2>
+  <p>Android only lets an app read the name of the Wi-Fi network (SSID), the access point (BSSID) and nearby networks if
+  it has the precise location permission and location is turned on. Hopwise asks for it only when you tap the button in
+  the Wi-Fi tab, and the rest of the app works without it.</p>
+  <ul>
+    <li>It is used only on your device, to read the network name, access point and nearby networks.</li>
+    <li>The app never reads your GPS position or coordinates.</li>
+    <li>Nothing obtained with it (location, network names, access points) is stored or sent anywhere.</li>
+    <li>It is used only while the app is open, never in the background.</li>
+  </ul>
 
   <h2>Exports and sharing</h2>
   <p>The app exports data (JSON backups, PDF or text reports, and an empty CSV import template) only when you choose
@@ -104,9 +166,17 @@
     <li><strong>Internet</strong> (<code>android.permission.INTERNET</code>): to send pings, DNS queries, TCP/TLS/HTTP
       probes and WHOIS lookups.</li>
     <li><strong>Network state</strong> (<code>android.permission.ACCESS_NETWORK_STATE</code>): to know whether the device
-      is online, so the app can say “no network” instead of showing a misleading failure.</li>
+      is online, so the app can say “no network” instead of showing a misleading failure, and to send the Wi-Fi tab’s
+      checks over the Wi-Fi network.</li>
+    <li><strong>Wi-Fi state</strong> (<code>android.permission.ACCESS_WIFI_STATE</code>): to read the Wi-Fi connection
+      (signal, band, channel, speed, addresses) and the last scan results.</li>
+    <li><strong>Change Wi-Fi state</strong> (<code>android.permission.CHANGE_WIFI_STATE</code>): Android requires it to
+      start a scan for nearby networks. The app does not change your Wi-Fi settings or connect to networks.</li>
+    <li><strong>Precise and approximate location</strong> (<code>android.permission.ACCESS_FINE_LOCATION</code>,
+      <code>android.permission.ACCESS_COARSE_LOCATION</code>): optional, see “Location permission” above.</li>
   </ul>
-  <p>The app does not request location, contacts, storage, camera, phone, microphone or advertising ID permissions.</p>
+  <p>The app does not request background location, contacts, storage, camera, phone, microphone or advertising ID
+  permissions.</p>
 
   <h2>Deleting your data</h2>
   <p>Because all data is stored only on your device, you control it fully. <em>Settings → Delete all data</em> deletes
